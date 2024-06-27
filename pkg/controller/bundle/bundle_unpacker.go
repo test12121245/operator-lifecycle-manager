@@ -234,24 +234,10 @@ func (c *ConfigMapUnpacker) job(cmRef *corev1.ObjectReference, bundlePath string
 					},
 					Tolerations: []corev1.Toleration{
 						{
-							Key:      "kubernetes.io/arch",
-							Value:    "amd64",
+							Key:      "zone",
+							Value:    "west",
 							Operator: "Equal",
-						},
-						{
-							Key:      "kubernetes.io/arch",
-							Value:    "arm64",
-							Operator: "Equal",
-						},
-						{
-							Key:      "kubernetes.io/arch",
-							Value:    "ppc64le",
-							Operator: "Equal",
-						},
-						{
-							Key:      "kubernetes.io/arch",
-							Value:    "s390x",
-							Operator: "Equal",
+							Effect: "NoSchedule",
 						},
 					},
 				},
